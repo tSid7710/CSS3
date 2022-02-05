@@ -1,0 +1,59 @@
+<html>
+<head>
+<title>jQuery</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $("#gu").click(function(){
+      $("#my").animate({width:'150px'},"slow");
+      $("#my").animate({height:'150px'},"slow");
+      $("#my").animate({width:'50px'},"slow");
+      $("#my").animate({height:'50px'},"slow");
+    });
+
+    $("#bs").click(function(){
+      $("#it").show();
+      $("#d2").animate({width:'600px',height:'500px'},"slow");
+      $("#pi").animate({fontSize:'25px'});
+    });
+
+    $("#bh").click(function(){
+      $("#it").hide();
+      $("#d2").animate({width:'400px',height:'700px'},"slow");
+      $("#pi").animate({fontSize:'45px'});
+    });
+
+    $("#v1").click(function(){
+      $("video").attr("src","music1.mp4")
+    });
+
+    $("#v2").click(function(){
+      $("video").attr("src","music2.mp4")
+    });
+
+  });
+
+</script>
+</head>
+
+<body>
+
+<div style="border:2px dashed red;top:200px;width:200px;height:500px;float:left;" id="d">
+  <img src="techtipsblog.jpg" height="50" width="50" id="my">
+  <input type="submit" value="click me" id="gu"></input>
+</div>
+
+<div style="margin-left:50;border:2px dashed red;float:left;height:500;width:600;top:200px" id="d1">
+  <input type="radio" value="video1" id="v1" name="rd">Telugu</input>
+  <input type="radio" value="video2" id="v2" name="rd">English</input>
+  <video src="" controls autopaly loop muted width="500" heigh="500"></video>
+</div>
+
+<div style="margin-left:40;border:2px dashed red;width:350;height:500;float:left;top:200px;" id="d2">
+  <p id="pi">Hii <b>How are you all ?</b> Are you fine ? <i id="it">Where are you all ?</i></p>
+  <input type="submit" value="show" id="bs">
+  <input type="submit" value="hide" id="bh">
+</div>
+
+</body>
+</html>

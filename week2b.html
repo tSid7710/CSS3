@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      td{
+        align:center;
+      }
+      .div1{
+        padding:30px;
+        border:2px dashed red;
+        float:left;
+        margin-left:400px;
+        width:700px;
+        margin-top:200px;
+      }
+      .div2{
+        padding:30px;
+        border:2px dashed red;
+        float:left;
+        margin-left:400px;
+        width:700px;
+      }
+      table{
+        align:center;
+        width:50%;
+        border:0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="div1">
+      <table>
+        <th colspan="2"> Fill Credentials</th>
+        <tr>
+          <td>EMP ID : </td>
+          <td><input type="text" id="eid"></td>
+        </tr>
+        <tr>
+          <td>DEPARTMENT : </td>
+          <td><input type="text" id="dep"></td>
+        </tr>
+        <tr>
+          <td>SALARY : </td>
+          <td><input type="text" id="sal"></td>
+        </tr>
+        <tr>
+          <td colspan="2">ADDRESS : <br>
+          <textarea  rows="6" cols="10" id="add"></textarea></td>
+        </tr>
+        <tr>
+        <td><input type="submit" value="Display" onclick="disp()"></td>
+        <td><input type="submit" value="Submit Query" onclick="subq()"></td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="div2">
+      <table id="my">
+        <tr>
+          <td><b>EMP ID</b></td>
+          <td><b>DEPARTMENT</b></td>
+          <td><b>SALARY</b></td>
+          <td><b>ADDRESS</b></td>
+        </tr>
+      </table>
+    </div>
+
+    <script type="text/javascript">
+      function subq(){
+      var a=document.getElementById("eid").value;
+      var b=document.getElementById("dep").value;
+      var c=document.getElementById("sal").value;
+      var d=document.getElementById("add").value;
+      var r=/\W/;
+      var rp=/\d/;
+      if(!rp.test(a)){
+        alert('EID should contain only digits');
+        return;
+      }
+      if(r.test(b)){
+        alert('DEP should contain only letters');
+        return;
+      }
+      if(!rp.test(c)){
+        alert('SALARY should contain only digits');
+        return;
+      }
+      var db=openDatabase('mydb','1.0','dts',2*1024*1024);
+      db.transaction(function(tx){
+        tx.executeSql('Create Table if not exists EMP(empid real unique,dept text,salary real,addr text)');
+        tx.executeSql('Insert into EMP(empid,dept,salary,addr) VALUES(?,?,?,?)',[a,b,c,d]);
+      });
+    }
+
+    function disp(){
+      var db=openDatabase('mydb','1.0','dts',2*1024*1024);
+      db.transaction(function(tr){
+          tx.executeSql('Select * from EMP',[],function(tx,results){
+            var i;var len=results.rows.length;
+            var r,c1,c2,c3,c4,de,sa,ad,ed;
+            for(i=0;i<=len;i++){
+              var t=document.getElementById('my');
+              r=t.insertRow(1);
+              c1=r.insertCell(0);
+              c2=r.insertCell(1);
+              c3=r.insertCell(2);
+              c4=r.insertCell(3);
+              ed=results.rows.item(i).empid;
+              de=results.rows.item(i).dept;
+              sa=results.rows.item(i).salary;
+              ad=results.rows.item(i).addr;
+              c1.innerHTML=ed;
+              c2.innerHTML=da;
+              c3.innerHTML=sa;
+              c4.innerHTML=ad;
+            }
+          });
+      });
+    }
+    </script>
+  </body>
+
+
+</html>

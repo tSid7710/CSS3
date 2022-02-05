@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Form Validation</title>
+    <script type="text/javascript">
+      function validate(){
+      var a=document.getElementById("fname").value;
+      var b=document.getElementById("lname").value;
+      var c=document.getElementById("uname").value;
+      var d=document.getElementById("pwd").value;
+      var e=document.getElementById("email").value;
+      var f=document.getElementById("phone").value;
+      var fpat=/^[A-Z][a-zA-Z_\.\s]*$/;
+      var un=/^[A-Z][a-zA-Z0-9_\.\-\$]*$/;
+      var em=/^[a-z]+[a-z0-9]+@[a-z]+[\.][a-z]{2,4}$/;
+      var pw=/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])[a-zA-Z0-9_!@#\$%\^&\*]{8,}$/;
+      var ph=/^[6-9][0-9]{9}$/
+      var ps=/^[1-6][0-9]{5}$/;
+      if((!fpat.test(a)) || (f.length<8)){
+        if(!fpat.test(a)){
+          alert("First name is Incorrect");
+        }
+        if(a.length<8){
+          alert("fn Length less than 8");
+        }
+      }
+      if(!un.test(c) || un.length<8){
+        if(!un.test(c)){
+          alert("Incorrect Username");
+        }
+        if(c.length<8){
+          alert("un Length < 8");
+        }
+      }
+    }
+    </script>
+  </head>
+  <body>
+    <form>
+      <table>
+        <tr>
+          <th>Fill the Form Details</th>
+        </tr>
+        <tr>
+          <td>First Name</td>
+          <td><input type="text" name="fname" id="fname"></td><br>
+        </tr>
+        <tr>
+          <td>Last Name</td>
+          <td><input type="text" name="lname" id="lname"></td>
+        </tr>
+        <tr>
+          <td>Date of Birth</td>
+          <td><input type="date" name="dob" id="dob"></td>
+        </tr>
+        <tr>
+          <td>Username</td>
+          <td><input type="text" name="uname" id="uname"></td>
+        </tr>
+        <tr>
+          <td>Password</td>
+          <td><input type="password" name="pwd" id="pwd"></td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td><input type="email" name="email" id="email"></td>
+        </tr>
+        <tr>
+          <td>Phone Number</td>
+          <td><input type="phone" name="phone" id="phone"></td>
+        </tr>
+        <tr>
+          <td align="center"><input type="submit" value="submit" onclick="validate()"></td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>

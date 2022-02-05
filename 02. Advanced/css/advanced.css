@@ -1,0 +1,118 @@
+div.border-radius{
+  width: 200px;
+  height: 100px;
+  background: dodgerblue;
+  border-radius: 20px
+}
+
+p#border{
+  border:10px solid transparent;
+  padding: 15px;
+  border-image: url(https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png) 30 round;
+}
+
+div.gradient-tb{
+  height: 200px;
+  background-color: red;
+  background-image: linear-gradient(dodgerblue,orange);
+  background-image: linear-gradient(to right,dodgerblue,green);
+}
+
+h1#shadows{
+  text-shadow: 2px 2px 5px dodgerblue;
+}
+
+div.transition{
+  width: 100px;
+  height:100px;
+  background: dodgerblue;
+  transition: width 2s;
+}
+
+div.transition:hover{
+  width: 300px;
+}
+
+div.animation{
+  width: 100px;
+  height: 100px;
+  background: red;
+  animation-name: first;
+  animation-duration: 2s;
+}
+
+@keyframes first {
+  from {background:green; }
+  to {background:dodgerblue;}
+}
+
+.tooltip{
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext{
+  visibility: hidden;
+  background-color: black;
+  width: 120px;
+  color: red;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext{
+  visibility: visible;
+}
+
+.button{
+  background: dodgerblue;
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  border:none;
+  padding: 15px 12px;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.button:hover{
+  background: green;
+}
+
+.pagination{
+  display: inline-block;
+}
+
+.pagination a{
+  color: black;
+  float: left;
+  padding: 12px 16px;
+  text-decoration: none;
+}
+
+.pagination a:hover{
+  background: red;
+}
+
+body{
+  background: pink;
+}
+
+@media screen and (min-width:480px){
+  body{
+    background: green;
+  }
+}
+
+@media screen and (min-width:768px){
+  body{
+    background: white;
+  }
+}

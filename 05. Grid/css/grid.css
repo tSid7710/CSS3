@@ -1,0 +1,19 @@
+.grid-container{
+  display: grid;
+  /* grid-row-gap: 30px;
+  grid-column-gap: 30px; */
+  grid-gap: 30px;
+  background: lightblue;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: 80px 100px;
+  /* justify-content: end; */
+  padding: 10px;
+}
+
+.grid-item{
+  background: dodgerblue;
+  border: 1px solid black;
+  text-align: center;
+  padding: 20px;
+  font-size: 30px;
+}

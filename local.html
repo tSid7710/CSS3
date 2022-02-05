@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <style>
+    td{
+      align:center;
+    }
+    table{
+      align:center;
+      width:50%;
+      border:0;
+    }
+    .div1{
+      padding:30px;
+      border:2px dashed red;
+      float:left;
+      margin-left:400px;
+      width:700px;
+      margin-top:200px;
+    }
+    #loc{
+      padding:30px;
+      float:left;
+      margin-left:400px;
+      width:700px;
+      margin-top:20px;
+    }
+  </style>
+  <body>
+    <div class="div1">
+      <table>
+        <tr>
+          <td>User name : </td>
+          <td><input type="text" id="uname"></td>
+        </tr>
+        <tr>
+          <td>Password : </td>
+          <td><input type="password" id="pswd"></td>
+        </tr>
+        <tr>
+        <td><input type="submit" name="submit" value="Submit" onclick="store()"></td>
+        <td><input type="submit" name="forget" value="Forget" onclick="storee()"></td>
+        </tr>
+      </table>
+    </div>
+
+    <div id="loc">
+
+    </div>
+
+<script type="text/javascript">
+  function store(){
+    var a=document.getElementById("uname").value;
+    var b=document.getElementById("pswd").value;
+    var r=/\W/;
+    if(r.test(a)){
+      alert('Username should contain only letters');
+      return;
+    }
+    if(b.length<8){
+      alert('Password should be greater than 8 characters');
+      return;
+    }
+    localStorage.setItem("user",a);
+    localStorage.setItem("password",b);
+    document.getElementById("uname").value="";
+    document.getElementById("pswd").value="";
+    document.getElementById("loc").innerHTML="Registered Successfully";
+  }
+
+  function storee(){
+    var c=localStorage.getItem("user");
+    var d=localStorage.getItem("password");
+    document.getElementById("uname").value=c;
+    document.getElementById("pswd").value=d;
+  }
+</script>
+  </body>
+</html>

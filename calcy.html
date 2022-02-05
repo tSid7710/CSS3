@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Scientific Caluculator</title>
+    <style media="screen">
+      button.clear{
+        background:#FF5722;
+        color:#fff;
+      }
+      table{
+        background:#bdb2ff;
+        border:6px solid #000d6b;
+        text-align:center;
+        border-radius:10px;
+        margin-top:20px;
+      }
+      button{
+        width:60px;
+        height:35px;
+        border-radius: 5px;
+        font-size: 16px;
+        font-weight:600;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 align="center" style="color:#184e77;margin-top:50px;">Scientific Caluculator</h1>
+    <form name="caluculator">
+      <table align="center" cellpadding="4" cellspacing="7">
+        <tr>
+          <td colspan="4">
+            <input type="text" name="result" value=""
+             style="text-align:right;width:100%;height:40px;font-size:20px;" placeholder="0">
+          </td>
+        </tr>
+        <tr>
+          <td>
+          <button type="button" value="sin" onclick="sin()">sin</button>
+          </td>
+          <td>
+          <button type="button" value="cos" onclick="cos()">cos</button>
+          </td>
+          <td>
+          <button type="button" value="tan" onclick="tan()">tan</button>
+          </td>
+          <td>
+          <button type="button" class="clear" value="clear" onclick="remv()">C</button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          <button type="button" value="x^2" onclick="square()">x<sup>2</sup></button>
+          </td>
+          <td>
+          <button type="button" value="x^3" onclick="qubbed()">x<sup>3</sup></button>
+          </td>
+          <td>
+          <button type="button" value="sqrt2" onclick="sqrt2()">&#8730;</button>
+          </td>
+          <td>
+          <button type="button" value="sqrt3" onclick="sqrt3()">&#8731;</button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          <button type="button" value="1" onclick="number(value)">1</button>
+          </td>
+          <td>
+          <button type="button" value="2" onclick="number(value)">2</button>
+          </td>
+          <td>
+          <button type="button" value="3" onclick="number(value)">3</button>
+          </td>
+          <td>
+          <button type="button" value="BACKSPC" onclick="backspc()"><</button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          <button type="button" value="4" onclick="number(value)">4</button>
+          </td>
+          <td>
+          <button type="button" value="5" onclick="number(value)">5</button>
+          </td>
+          <td>
+          <button type="button" value="6" onclick="number(value)">6</button>
+          </td>
+          <td>
+          <button type="button" value="+" onclick="number(value)">+</button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          <button type="button" value="7" onclick="number(value)">7</button>
+          </td>
+          <td>
+          <button type="button" value="8" onclick="number(value)">8</button>
+          </td>
+          <td>
+          <button type="button" value="9" onclick="number(value)">9</button>
+          </td>
+          <td>
+          <button type="button" value="-" onclick="number(value)">-</button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          <button type="button" value="." onclick="number(value)"><b>.</b></button>
+          </td>
+          <td>
+          <button type="button" value="0" onclick="number(value)">0</button>
+          </td>
+          <td>
+          <button type="button" value="%" onclick="number(value)">%</button>
+          </td>
+          <td>
+          <button type="button" value="*" onclick="number(value)">x</button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          <button type="button" value="π" onclick="pi()">π</button>
+          </td>
+          <td>
+          <button type="button" value="log" onclick="log()">log</button>
+          </td>
+          <td>
+          <button type="button" value="=" onclick="equals()" class="equal">=</button>
+          </td>
+          <td>
+          <button type="button" value="/" onclick="number(value)">/</button>
+          </td>
+        </tr>
+
+      </table>
+    </form>
+
+    <script type="text/javascript">
+      function sin(){
+        document.caluculator.result.value=Math.sin(document.caluculator.result.value);
+      }
+      function cos(){
+        document.caluculator.result.value=Math.cos(document.caluculator.result.value);
+      }
+      function tan(){
+        document.caluculator.result.value=Math.tan(document.caluculator.result.value);
+      }
+      function backspc(){
+        var a=document.caluculator.result.value;
+        document.caluculator.result.value=a.substr(0,a.length-1);
+      }
+      function square(){
+        document.caluculator.result.value=Math.pow(document.caluculator.result.value,2);
+      }
+      function qubbed(){
+        document.caluculator.result.value=Math.pow(document.caluculator.result.value,3);
+      }
+      function sqrt2(){
+        document.caluculator.result.value=Math.sqrt(document.caluculator.result.value,1/2);
+      }
+      function sqrt3(){
+        document.caluculator.result.value=Math.pow(document.caluculator.result.value,1/3);
+      }
+      function number(value){
+        document.caluculator.result.value+=value;
+      }
+      function remv(){
+        document.caluculator.result.value=" ";
+      }
+      function equals(){
+        document.caluculator.result.value=eval(document.caluculator.result.value);
+      }
+      function pi(){
+        document.caluculator.result.value+=3.1415;
+      }
+      function log(){
+        document.caluculator.result.value=Math.log10(document.caluculator.result.value);
+      }
+
+    </script>
+  </body>
+</html>
